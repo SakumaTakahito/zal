@@ -41,6 +41,19 @@ RUN ssh-keygen -t rsa -N "" -f /etc/ssh/ssh_host_rsa_key
 
 RUN rpm -ivh https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-1.1.12-linux-el7-x86-64bit.rpm
 
+#Install AMQP client
+RUN yum -y install \
+    make \
+    openssl-devel \
+    libev-devel
+RUN cd /tmp \
+    && wget https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v4.1.4.tar.gz \
+    && tar -zxvf v4.1.4.tar.gz \
+    && rm v4.1.4.tar.gz \
+    && cd AMQP-CPP-4.1.4/ \
+    && make \
+    && sudo make install
+
 EXPOSE 22
 
 CMD ["/usr/sbin/sshd", "-D"]
