@@ -112,4 +112,5 @@ RUN cd /tmp \
 	&& make \
 	&& sudo make install \
 	&& ldconfig
-RUN chmod -R 755 /work
+	
+RUN mkdir -p /work && chmod -R 755 /work
