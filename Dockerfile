@@ -112,5 +112,12 @@ RUN cd /tmp \
 	&& make \
 	&& sudo make install \
 	&& ldconfig
+
+#install gzip-hpp 
+RUN cd /tmp \
+	&& wget https://github.com/mapbox/gzip-hpp/archive/v0.1.0.tar.gz \
+	&& tar xzf v0.1.0.tar.gz \
+	&& rm -f v0.1.0.tar.gz \
+	&& mv gzip-hpp-0.1.0/include/gzip/ /usr/local/include/
 	
 RUN mkdir -p /work && chmod -R 755 /work
