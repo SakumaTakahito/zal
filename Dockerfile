@@ -84,7 +84,7 @@ RUN cd /tmp \
     && ldconfig
 
 #install spdlog, serialize, json, 
-ARG spdlog_version=1.3.1
+ARG spdlog_version=1.4.2
 ARG cereal_version=1.2.2
 ARG json11_version=1.0.0
 RUN cd /tmp \
